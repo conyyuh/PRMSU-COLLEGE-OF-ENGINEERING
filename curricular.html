@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curricular Offerings</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f7f9fc, #eef2f7);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        p {
+            max-width: 800px;
+            margin: 10px auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        /* Header with Hamburger */
+        header {
+            background-color: #1f3d63;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 250px;
+            height: 100%;
+            background-color: #1f3d63;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .close-btn {
+            align-self: flex-end;
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #2f5877;
+        }
+
+        /* Main Section */
+        main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #1f3d63;
+            text-transform: uppercase;
+        }
+
+        section p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1f3d63;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="title">
+            <h1>Curricular Offerings</h1>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+
+        </ul>
+    </div>
+
+    <main>
+        <section id="computer-engineering">
+            <h2>Computer Engineering</h2>
+            <p>The Computer Engineering program focuses on the integration of hardware and software, preparing students to design and develop computer systems, networks, and embedded solutions for various industries.</p>
+        </section>
+
+        <section id="mechanical-engineering">
+            <h2>Mechanical Engineering</h2>
+            <p>The Mechanical Engineering program provides knowledge in mechanics, thermodynamics, and materials, equipping students to design, analyze, and manufacture mechanical systems for diverse applications.</p>
+        </section>
+
+        <section id="civil-engineering">
+            <h2>Civil Engineering</h2>
+            <p>The Civil Engineering program emphasizes infrastructure design and construction, focusing on sustainable development of buildings, roads, bridges, and water systems.</p>
+        </section>
+
+        <section id="electrical-engineering">
+            <h2>Electrical Engineering</h2>
+            <p>The Electrical Engineering program develops expertise in electrical systems, power generation, and electronics, enabling graduates to contribute to industrial and renewable energy advancements.</p>
+        </section>
+
+        <section id="mining-engineering">
+            <h2>Mining Engineering</h2>
+            <p>The Mining Engineering program trains students in mineral exploration, extraction, and resource management, with an emphasis on environmental sustainability and safety practices.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PRMSU College of Engineering. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+
+        // Open sidebar
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('open');
+        });
+
+        // Close sidebar
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
